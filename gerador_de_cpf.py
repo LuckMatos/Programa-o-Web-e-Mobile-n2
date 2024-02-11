@@ -21,9 +21,9 @@ Se o resultado anterior for maior que 9:
 contrário disso:
     resultado é o valor da conta
 
-O primeiro dígito do CPF é 7cls
+O primeiro dígito do CPF é 7
 """
-cpf = '74682489070'
+cpf = input('Informe o seu CPF\n')
 nove_digitos = cpf[:9]
 
 contador_regressivo = 10
@@ -38,19 +38,23 @@ digito = (resultado_digito_1 * 10)% 11
 
 digito = digito if digito<= 9 else 0
 
-print(digito)
 
 
-cpf = cpf+ str( digito)
-nove_digitos_2 = cpf
 
+nove_digitos+= str(digito) 
+nove_digitos
 contador_regressivo_2 = 11
 resultado_digito_2 = 0
-for digito2 in nove_digitos_2:
+for digito2 in nove_digitos:
     resultado_digito_2 += int(digito2) * contador_regressivo_2
     contador_regressivo_2 -= 1
 
 digito2 = (resultado_digito_2 * 10 ) % 11
 digito2 = digito2 if digito2 <= 9 else 0 
 
-print(digito2)
+novo_cpf = f'{nove_digitos}{digito2}'
+
+if cpf == novo_cpf:
+    print(f'{cpf} é Válido')
+else:
+     print(f'{cpf}  inválido')
